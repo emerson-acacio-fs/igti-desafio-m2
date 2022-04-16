@@ -5,6 +5,9 @@ export const WrapperCityBox = styled.div`
     border: 0.1rem solid ${theme.colors.gray};
     border-radius: ${theme.border.radius};
     padding: 1.5rem;
+    display: flex;
+    row-gap: 1.5rem;
+    flex-direction: column;
   `}
 `
 
