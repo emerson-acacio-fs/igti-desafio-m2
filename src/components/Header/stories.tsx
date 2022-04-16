@@ -16,8 +16,14 @@ export const Default: ComponentStory<typeof Header> = (args) => (
 )
 
 Default.bind({})
+Default.args = {
+  cities: [
+    { id: "ww33", name: "Asgard" },
+    { id: "ww222", name: "AAA" },
+  ],
+}
 Default.play = async ({ args, canvasElement }) => {
   const canvas = within(canvasElement)
-  await userEvent.selectOptions(canvas.getByTestId("select"), "oi")
+  await userEvent.selectOptions(canvas.getByTestId("select"), "Asgard")
   await expect(args.handelSelectedCity).toBeCalled()
 }

@@ -1,14 +1,17 @@
 import { Select } from "components/Select"
 import { getUuId } from "helpers"
 import { ChangeEventHandler } from "react"
+import { CityType } from "types/CityType"
+
 import * as S from "./styles"
 
 export type HeaderProps = {
   id?: string
   title?: string
   question?: string
+  cities?: CityType[]
   // eslint-disable-next-line no-unused-vars
-  handelSelectedCity?: (city: string) => void
+  handelSelectedCity?: (cityId: string) => void
 }
 
 export const Header = ({
@@ -16,6 +19,7 @@ export const Header = ({
   title = "React elections",
   question = "Escolha um município",
   handelSelectedCity,
+  cities = [],
 }: HeaderProps) => {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = ({ target }) => {
     if (handelSelectedCity) {
@@ -28,9 +32,11 @@ export const Header = ({
       <S.FooterContent>
         <S.SelectLabel htmlFor={id}>{question}</S.SelectLabel>
         <Select data-testid="select" id={id} onChange={handleChange}>
-          <option value="oi">oi</option>
-          <option>oi2</option>
-          <option>oi3</option>
+          {cities.map((city) => (
+            <option key={city.id} value={city.id}>
+              {city.name}
+            </option>
+          ))}
         </Select>
       </S.FooterContent>
     </S.WrapperHeader>

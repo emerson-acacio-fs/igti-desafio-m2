@@ -9,6 +9,8 @@ export const TopContent = styled.h1`
     width: 100%;
     text-align: center;
     background-color: ${theme.colors.softBlue};
+    font-size: ${theme.font.sizes.huge};
+    font-weight: ${theme.font.bold};
     line-height: 1;
     padding: 1.5rem 0;
     margin-bottom: 1.5rem;

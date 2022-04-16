@@ -19,7 +19,6 @@ export const CandidateCard = ({
   <S.WrapperCandidateCard>
     <S.MainContent>
       <S.Imag src={`${process.env.PUBLIC_URL}/images/${candidateImage}.png`} />
-
       <S.CandidateData>
         <S.Percentage isWinner={isWinner}>
           {formatNumber(percentageVotes)}%
