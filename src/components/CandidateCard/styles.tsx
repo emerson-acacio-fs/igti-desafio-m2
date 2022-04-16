@@ -11,7 +11,6 @@ export const WrapperCandidateCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     font-size: ${theme.font.sizes.xlarge};
     font-weight: ${theme.font.bold};
   `}

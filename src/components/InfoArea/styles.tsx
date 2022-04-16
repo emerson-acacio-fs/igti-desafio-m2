@@ -2,7 +2,6 @@ import styled, { css } from "styled-components"
 
 export const WrapperInfoArea = styled.div`
   width: 100%;
-  padding: 1.5rem;
   font-size: ${({ theme }) => theme.font.sizes.medium};
   display: flex;
   flex-direction: column;
