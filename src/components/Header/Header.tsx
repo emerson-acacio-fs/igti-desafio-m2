@@ -9,6 +9,7 @@ export type HeaderProps = {
   id?: string
   title?: string
   question?: string
+  value: string
   cities?: CityType[]
   // eslint-disable-next-line no-unused-vars
   handelSelectedCity?: (cityId: string) => void
@@ -20,6 +21,7 @@ export const Header = ({
   question = "Escolha um município",
   handelSelectedCity,
   cities = [],
+  value,
 }: HeaderProps) => {
   const handleChange: ChangeEventHandler<HTMLSelectElement> = ({ target }) => {
     if (handelSelectedCity) {
@@ -31,7 +33,12 @@ export const Header = ({
       <S.TopContent>{title}</S.TopContent>
       <S.FooterContent>
         <S.SelectLabel htmlFor={id}>{question}</S.SelectLabel>
-        <Select data-testid="select" id={id} onChange={handleChange}>
+        <Select
+          data-testid="select"
+          value={value}
+          id={id}
+          onChange={handleChange}
+        >
           {cities.map((city) => (
             <option key={city.id} value={city.id}>
               {city.name}

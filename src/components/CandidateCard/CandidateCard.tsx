@@ -5,14 +5,14 @@ export type CandidateCardProps = {
   candidateName: string
   candidateImage: string
   isWinner?: boolean
-  totalVotes: number
+  votingPopulation: number
   percentageVotes: number
 }
 
 export const CandidateCard = ({
   candidateName,
   isWinner = false,
-  totalVotes,
+  votingPopulation,
   percentageVotes,
   candidateImage,
 }: CandidateCardProps) => (
@@ -23,7 +23,7 @@ export const CandidateCard = ({
         <S.Percentage isWinner={isWinner}>
           {formatNumber(percentageVotes)}%
         </S.Percentage>
-        <S.Votes>{formatNumber(totalVotes, true)} votos</S.Votes>
+        <S.Votes>{formatNumber(votingPopulation, true)} votos</S.Votes>
       </S.CandidateData>
     </S.MainContent>
     <S.InfoWrapper>

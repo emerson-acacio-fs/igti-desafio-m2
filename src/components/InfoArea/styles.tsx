@@ -24,6 +24,6 @@ export const Totals = styled.div`
   column-gap: 2rem;
 `
 export const Voters = styled.span``
-export const Abstentions = styled.span``
-export const Attendances = styled.span``
+export const Absence = styled.span``
+export const Presence = styled.span``
 export const CandidateNumber = styled.div``

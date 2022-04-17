@@ -1,50 +1,38 @@
-import { Header } from "components"
+import { Header, InfoArea } from "components"
 import { CityBox } from "components/CityBox"
+import { findCityById } from "helpers"
+import { useData } from "hooks/useData"
 import * as S from "./sttyle"
 
-const city = {
-  name: "Asgard",
-  candidateNumber: 5,
-  abstentions: 12112,
-  totalVotes: 12112,
-  attendances: 12112,
-  candidates: [
-    {
-      id: "2222",
-      name: "Antman",
-      userName: "antman",
-      totalVotes: 222,
-      percentageVotes: 222,
-      isWinner: true,
-    },
-    {
-      id: "333223",
-      name: "Ironman",
-      userName: "ironMan",
-      totalVotes: 222,
-      percentageVotes: 222,
-      isWinner: false,
-    },
-  ],
-}
-const cities = [
-  { id: "ww33", name: "Asgard" },
-  { id: "ww222", name: "AAA" },
-]
-
 export function Home() {
+  const { cities, selectCityId, setSelectCityId, citiesWithCandidates, error } =
+    useData()
+  if (error) {
+    return <h1>Ocorreu um erro</h1>
+  }
+
+  const selectedCity = findCityById(citiesWithCandidates, selectCityId)
+  if (!selectedCity) {
+    return <h1>Ocorreu um erro</h1>
+  }
+
   return (
     <>
-      <Header cities={cities} />
+      <Header
+        cities={cities}
+        value={selectCityId}
+        handelSelectedCity={setSelectCityId}
+      />
       <S.MainContent>
-        <CityBox
-          name={city.name}
-          totalVotes={city.totalVotes}
-          candidateNumber={city.candidates.length + 1}
-          abstentions={city.abstentions}
-          attendances={city.attendances}
-          candidates={city.candidates}
-        />
+        <CityBox candidates={selectedCity.candidates}>
+          <InfoArea
+            name={selectedCity.name}
+            votingPopulation={selectedCity.votingPopulation}
+            candidateNumber={selectedCity.candidates.length}
+            absence={selectedCity.absence}
+            presence={selectedCity.presence}
+          />
+        </CityBox>
       </S.MainContent>
     </>
   )

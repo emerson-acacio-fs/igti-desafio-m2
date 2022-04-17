@@ -1,36 +1,24 @@
 import { CandidateCard } from "components/CandidateCard"
-import { InfoArea } from "components/InfoArea"
-import { InfoAreaProps } from "components/InfoArea/InfoArea"
+
+import { ReactChild } from "react"
 import { CandidateType } from "types/Candidate"
 import * as S from "./styles"
 
 export type CityBoxProps = {
   candidates: CandidateType[]
-} & InfoAreaProps
+  children: ReactChild
+}
 
-export const CityBox = ({
-  name,
-  candidateNumber,
-  abstentions,
-  totalVotes,
-  attendances,
-  candidates,
-}: CityBoxProps) => (
+export const CityBox = ({ children, candidates }: CityBoxProps) => (
   <S.WrapperCityBox>
-    <InfoArea
-      name={name}
-      totalVotes={totalVotes}
-      abstentions={abstentions}
-      attendances={attendances}
-      candidateNumber={candidateNumber}
-    />
+    {children}
     <S.WrapperCandidates>
       {candidates.map((candidate) => (
         <CandidateCard
           key={candidate.id}
           candidateName={candidate.name}
           candidateImage={candidate.userName}
-          totalVotes={candidate.totalVotes}
+          votingPopulation={candidate.votingPopulation}
           percentageVotes={candidate.percentageVotes}
           isWinner={candidate.isWinner}
         />

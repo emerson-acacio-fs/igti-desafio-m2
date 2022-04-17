@@ -3,17 +3,17 @@ import * as S from "./styles"
 
 export type InfoAreaProps = {
   name: string
-  totalVotes: number
-  abstentions: number
-  attendances: number
+  votingPopulation: number
+  absence: number
+  presence: number
   candidateNumber: number
 }
 
 export const InfoArea = ({
   name = "Asgard",
-  totalVotes,
-  abstentions,
-  attendances,
+  votingPopulation,
+  absence,
+  presence,
   candidateNumber,
 }: InfoAreaProps) => (
   <S.WrapperInfoArea>
@@ -21,14 +21,14 @@ export const InfoArea = ({
     <S.Totals>
       <S.Voters>
         <strong>Total de eleitores: </strong>
-        {formatNumber(totalVotes, true)}
+        {formatNumber(votingPopulation, true)}
       </S.Voters>
-      <S.Abstentions>
-        <strong>Abstenção: </strong> {formatNumber(abstentions, true)}
-      </S.Abstentions>
-      <S.Attendances>
-        <strong>Comparecimento: </strong> {formatNumber(attendances, true)}
-      </S.Attendances>
+      <S.Absence>
+        <strong>Abstenção: </strong> {formatNumber(absence, true)}
+      </S.Absence>
+      <S.Presence>
+        <strong>Comparecimento: </strong> {formatNumber(presence, true)}
+      </S.Presence>
     </S.Totals>
     <S.CandidateNumber>
       {formatNumber(candidateNumber, true)} candidatos
