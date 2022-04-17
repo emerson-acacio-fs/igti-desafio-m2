@@ -6,13 +6,27 @@ import { CityType } from "types/CityType"
 export function useData() {
   const [cities, setCities] = useState<CityType[]>([])
   const [error, setError] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const [selectCityId, setSelectCityId] = useState<string>("")
   const [citiesWithCandidates, setCitiesWithCandidates] = useState<
     CitiesWithCandidatesType[]
   >([])
   useEffect(() => {
-    getData(setCities, setCitiesWithCandidates, setSelectCityId, setError)
+    getData(
+      setCities,
+      setCitiesWithCandidates,
+      setSelectCityId,
+      setError,
+      setLoading,
+    )
   }, [])
 
-  return { cities, selectCityId, setSelectCityId, citiesWithCandidates, error }
+  return {
+    cities,
+    selectCityId,
+    setSelectCityId,
+    citiesWithCandidates,
+    error,
+    loading,
+  }
 }

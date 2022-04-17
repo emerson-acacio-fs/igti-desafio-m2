@@ -2,22 +2,38 @@ import { Header, InfoArea } from "components"
 import { CityBox } from "components/CityBox"
 import { findCityById } from "helpers"
 import { useData } from "hooks/useData"
-import * as S from "./sttyle"
+import { Error } from "@styled-icons/boxicons-regular"
+import PulseLoader from "react-spinners/PulseLoader"
+import * as S from "./style"
 
 export function Home() {
-  const { cities, selectCityId, setSelectCityId, citiesWithCandidates, error } =
-    useData()
+  const {
+    cities,
+    selectCityId,
+    setSelectCityId,
+    citiesWithCandidates,
+    error,
+    loading,
+  } = useData()
+
   if (error) {
-    return <h1>Ocorreu um erro</h1>
+    return (
+      <S.ErrorWrapper>
+        <Error size="15rem" />
+        <div>Ocorreu um erro</div>
+      </S.ErrorWrapper>
+    )
   }
 
   const selectedCity = findCityById(citiesWithCandidates, selectCityId)
-  if (!selectedCity) {
-    return <h1>Ocorreu um erro</h1>
-  }
 
   return (
     <>
+      {loading && (
+        <S.SpinnerWrapper>
+          <PulseLoader color="#187be6" size={15} />
+        </S.SpinnerWrapper>
+      )}
       <Header
         cities={cities}
         value={selectCityId}

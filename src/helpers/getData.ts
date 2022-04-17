@@ -20,13 +20,17 @@ export async function getData(
   setCitiesWithCandidates: Dispatch<SetStateAction<CitiesWithCandidatesType[]>>,
   setSelectCityId: Dispatch<SetStateAction<string>>,
   setError: Dispatch<SetStateAction<boolean>>,
+  setLoading: Dispatch<SetStateAction<boolean>>,
 ): Promise<void> {
+  setLoading(true)
   let cities = await getCities()
   const candidates = await getCandidates()
   const election = await getElection()
-
   if (!cities || !candidates || !election) {
     setError(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
   } else {
     const citiesWithCandidates: CitiesWithCandidatesType[] = cities.map(
       (city) => {
@@ -77,5 +81,8 @@ export async function getData(
         setSelectCityId(cities[0].id)
       }
     }
+    setTimeout(() => {
+      setLoading(false)
+    }, 500)
   }
 }
