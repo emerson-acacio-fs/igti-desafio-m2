@@ -17,6 +17,7 @@ export const Default: ComponentStory<typeof Header> = (args) => (
 
 Default.bind({})
 Default.args = {
+  value: "ww222",
   cities: [
     { id: "ww33", name: "Asgard" },
     { id: "ww222", name: "AAA" },
