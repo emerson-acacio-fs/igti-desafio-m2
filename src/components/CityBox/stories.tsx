@@ -15,7 +15,7 @@ export const Default: ComponentStory<typeof CityBox> = (args) => (
 )
 
 Default.args = {
-  city: "Asgard",
+  name: "Asgard",
   candidateNumber: 5,
   abstentions: 12112,
   totalVotes: 12112,

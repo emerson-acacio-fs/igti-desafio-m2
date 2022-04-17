@@ -2,7 +2,7 @@ import { formatNumber } from "helpers"
 import * as S from "./styles"
 
 export type InfoAreaProps = {
-  city: string
+  name: string
   totalVotes: number
   abstentions: number
   attendances: number
@@ -10,14 +10,14 @@ export type InfoAreaProps = {
 }
 
 export const InfoArea = ({
-  city = "Asgard",
+  name = "Asgard",
   totalVotes,
   abstentions,
   attendances,
   candidateNumber,
 }: InfoAreaProps) => (
   <S.WrapperInfoArea>
-    <S.Header>Eleições de {city}</S.Header>
+    <S.Header>Eleições de {name}</S.Header>
     <S.Totals>
       <S.Voters>
         <strong>Total de eleitores: </strong>

@@ -15,7 +15,7 @@ export const Default: ComponentStory<typeof InfoArea> = (args) => (
 )
 
 Default.args = {
-  city: "Asgard",
+  name: "Asgard",
   totalVotes: 12112,
   abstentions: 12112,
   attendances: 12112,

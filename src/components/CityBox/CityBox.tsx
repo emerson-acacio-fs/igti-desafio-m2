@@ -9,7 +9,7 @@ export type CityBoxProps = {
 } & InfoAreaProps
 
 export const CityBox = ({
-  city,
+  name,
   candidateNumber,
   abstentions,
   totalVotes,
@@ -18,7 +18,7 @@ export const CityBox = ({
 }: CityBoxProps) => (
   <S.WrapperCityBox>
     <InfoArea
-      city={city}
+      name={name}
       totalVotes={totalVotes}
       abstentions={abstentions}
       attendances={attendances}

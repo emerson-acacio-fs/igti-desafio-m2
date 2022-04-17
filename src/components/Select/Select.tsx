@@ -1,9 +1,4 @@
-import {
-  MouseEventHandler,
-  ReactNode,
-  SelectHTMLAttributes,
-  useRef,
-} from "react"
+import { ReactNode, SelectHTMLAttributes } from "react"
 import { ArrowIosDownwardOutline } from "@styled-icons/evaicons-outline"
 import * as S from "./styles"
 
