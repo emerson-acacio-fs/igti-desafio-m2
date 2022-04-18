@@ -5,6 +5,7 @@ export const WrapperCandidateCard = styled.div`
   ${({ theme }) => css`
     width: 30rem;
     height: 25rem;
+
     box-shadow: 0.5rem 1rem 1.8rem rgba(0, 0, 0, 0.2);
     border-radius: ${theme.border.radius};
     padding: 1.5rem;
@@ -26,7 +27,9 @@ export const MainContent = styled.div`
 `
 export const Imag = styled.img`
   width: 8rem;
+  height: 8rem;
   border-radius: 50%;
+  object-fit: cover;
 `
 export const Percentage = styled.div<Pick<CandidateCardProps, "isWinner">>`
   ${({ theme, isWinner }) => css`
