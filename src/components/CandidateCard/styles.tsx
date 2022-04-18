@@ -14,6 +14,22 @@ export const WrapperCandidateCard = styled.div`
     align-items: center;
     font-size: ${theme.font.sizes.xlarge};
     font-weight: ${theme.font.bold};
+    animation: openEditCurrent 0.7s linear;
+    transform-origin: top;
+    @keyframes openEditCurrent {
+      0% {
+        opacity: 0;
+        transform: scaleY(0);
+      }
+      25% {
+        opacity: 0;
+        transform: scaleY(0.3);
+      }
+      100% {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
   `}
 `
 

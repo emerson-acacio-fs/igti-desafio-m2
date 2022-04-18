@@ -11,31 +11,9 @@ export const WrapperCityBox = styled.div`
   `}
 `
 
-type Animation = { startAnimation: boolean }
-
-export const WrapperCandidates = styled.div<Animation>`
+export const WrapperCandidates = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
-  ${({ startAnimation }) =>
-    startAnimation &&
-    css`
-      animation: openEditCurrent 0.7s linear;
-      transform-origin: top;
-      @keyframes openEditCurrent {
-        0% {
-          opacity: 0;
-          transform: scaleY(0);
-        }
-        25% {
-          opacity: 0;
-          transform: scaleY(0.3);
-        }
-        100% {
-          opacity: 1;
-          transform: scaleY(1);
-        }
-      }
-    `}
 `
